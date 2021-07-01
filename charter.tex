@@ -38,7 +38,7 @@
 \juradoTres{Nombre y Apellido (3)}
 \pertenenciaJurTres{pertenencia (3)}
  
-\fechaINICIO{28 de julio de 2021}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaINICIO{28 de junio de 2021}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{18 de junio de 2022} 	%Fecha de final de cursada de GdP
 \fechaFINALTrabajo{15 de mayo de 2022}	%Fecha de defensa pública del trabajo final
 
@@ -116,30 +116,27 @@ Se adjunta a esta acta la planificación inicial.
 \label{sec:descripcion}
 
 
-\begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección
+\begin{consigna}{black} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección
 
-El objetivo es que el lector en una o dos páginas entienda de qué se trata el proyecto y cuáles son sus desafíos, su motivación y su importancia.
-
-Se debe destacar claramente cuál es el valor que agrega el proyecto a realizar. ``El presente proyecto se destaca especialmente por incorporar tal cosa... Esto lo diferencia de otros sistemas similares en que ...''
-
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+Buscamos utilizar un sistema de visión para prevenir accidentes en planta, identificando personas en áreas peligrosas
 
 \begin{itemize}
-	\item ¿Cómo se vincula este proyecto con la misión de la organización?
-	\item ¿Cómo se inserta este proyecto en el modelo de negocio de la organización?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está el producto que se desea reemplazar o mejorar?
-	\item ¿Cuáles son las necesidades que debe satisfacer?
-	\item ¿Por dónde pasa la innovación?
+	\item La misión del cliente es operar con seguridad 
+	\item El cliente busca dar soluciones integrales al transporte, asegurar disponibilidad de las instalaciones se inserta directamente en este modelo.
+	\item ==>Agregar modelo de negocio<==
+	\item El desarrollo esta en iniciando con lo cual es el mejor momento para asegurar su éxito.  
+	\item Se busca satisfacer la necesidad de aumentar la seguridad del personal y las instalaciones. 
+	\item El aspecto de mayor innovación es brindar a plantas que buscan ser mas autónomas (menor cantidad de personal) una solución de seguridad que en este momento no se esta dando. 
 \end{itemize}
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''. Luego recién más abajo de haber puesto esta frase, se pone la figura. La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+Las instalaciones dedicadas al proceso de transporte de gas cuentan con equipos dentro de edificios y fuera de edificios, en ambos casos las operación de los mismos compromete al personal con zonas calientes, equipos sometidos a alta presión y piezas móviles. En las tareas operativas como bloquear una válvula o habilitar un arrancador a gas es necesario entrar en contacto o estar en cercanía de estos elementos. Resulta de gran utilidad poder identificar que un personal de planta se encuentra realizando una tarea por ejemplo en el compresor axial de una turbina de gas, o bien operando una válvula de bypass con diferenciales de 20 kg/cm2 de presión. En algunos casos se trabaja con cargas suspendidas o bien con estibajes de cargas pesadas, aquí también es importante identificar las zonas en las cuales puede o no encontrarse el personal de operaciones. También si es que la persona ha sufrido un accidente y se encuentra en posición horizontal. Igualmente importante es si se cuenta con los elementos de protección personal. Un sistema que identifique el personal en áreas peligrosas puede prevenir perjuicios a las instalaciones por malas operaciones pero sobre todo prevenir lesiones o pérdida de vidas al notificar al personal calificado de una situación específica.
+En la Figura 1 se muestra el diagrama en bloques del sistema. Se observan algunas de las áreas planteadas y los equipos de adquisición (cámaras y placas). Luego el procesamiento en una PC dedicada (en un futuro que sea una placa de procesamiento basada en FPGA). La información junto con las imágenes es guardada en un storage. Luego la identificación de la persona y el área es enviada al PLC para ser notificada en el SCADA de planta. El operador de planta será notificado de esta situación
 
 %\vspace{25px}
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.5\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=.5\textwidth]{./Figuras/diagramaProyecto.png}
 \caption{Diagrama en bloques del sistema}
 \label{fig:diagBloques}
 \end{figure}
@@ -210,23 +207,27 @@ Por ejemplo:
 \label{sec:proposito}
 
 \begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
+El propósito de este proyecto se realiza para aumentar la seguridad de las personas y las instalaciones.
 \end{consigna}
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
 \begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
-
+ 
 Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
-
+Este proyecto incluye la instalación de un hardware para la adquisición, su programación y la instalación de un hardware para el procesamiento de imágenes.
 Explicitar todo lo quede comprendido dentro del alcance del proyecto.
+El objetivo es desarrollar un software que se despliegue en la PC de procesamiento. Este software debe poder identificar personas e identificar áreas inseguras previamente definidas en las imágenes.
+Se propone utilizar un software de procesamiento de imágenes basado en algoritmos de inteligencia artificial para clasificar objetos y personas.
+Se propone generar un conjunto de imágenes de entrenamiento y otro de validación. Para esto se adquirirán las imágenes con una cámara color para Raspberry Pi Zero de 5Mp y una placa Raspberry Pi Zero (esto último no es importante para el procesamiento de imagen solo es anecdótico). 
+El algoritmo debe poder identificar independientemente de la instalación de la cámara alguno de los objetos en la imagen previamente definidos por ejemplo turbina. Luego identificar personas. Finalmente identificar si esta persona posee elementos de seguridad (en el caso de que sea distinguible).
+Una vez identificado los objetos debe poder identificar si hay una persona en la imagen. Si identifica positivamente la persona en la imagen, si esta persona está en el área de peligro en el caso de que lo esté debe enviar la información al PLC para notificar en el SCADA de control.
+El objetivo de identificar primero los objetos es que si estos han sufrido alguna alteración como fuego o rotura esto pueda ser indicado y notificado de nuevo al PLC y SCADA. Esto previene que las personas ingresen al área insegura.
+Finalmente al identificar la persona debe indicarse si esta se encuentra en posición horizontal en este caso es posible que esta haya sufrido una lesión mayor y debe notificarse rápidamente al PLC y SCADA.
+El presente desarrollo será realizado dentro de las instalaciones de planta compresora de Bajo del Gualicho localizada a 80 km de la ciudad de Puerto Madryn en la provincia de Chubut. La misma cuenta con 3 turbinas de gas Nova Pignone y 1 turbina de gas Solar con sus respectivas instalaciones para operación y transporte de gas. 
 
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
+No esta dentro de este proyecto las medidas de seguridad para operar en ambientes explosivos, ni tampoco las certificaciones internas que requiera la empresa. En esta etapa del desarrollo se plantea la utilización de una PC para el procesamiento. En un futuro se busca utilizar un hardware.
 \end{consigna}
 
 
