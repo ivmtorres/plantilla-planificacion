@@ -92,7 +92,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{red}{utilizar un sistema de visión para prevenir accidentes en planta, identificando personas en áreas peligrosas}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} hs de trabajo y \textcolor{red}{\$54000}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{black}{utilizar un sistema de visión para prevenir accidentes en plantas compresoras de gas, identificando personas en áreas peligrosas}, y tendrá un presupuesto preliminar estimado de \textcolor{black}{960} hs de trabajo y \textcolor{black}{\$86400} el cliente se compromete a entregar el hardware asociado al proyecto, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -123,46 +123,53 @@ Buscamos utilizar un sistema de visión para prevenir accidentes en planta, iden
 \begin{itemize}
 	\item La misión del cliente es operar con seguridad 
 	\item El cliente busca dar soluciones integrales al transporte, asegurar disponibilidad de las instalaciones se inserta directamente en este modelo.
-	\item ==>Agregar modelo de negocio<==
-	\item El desarrollo esta en iniciando con lo cual es el mejor momento para asegurar su éxito.  
+	\item El desarrollo se esta iniciando con lo cual es el mejor momento para asegurar su éxito.  
 	\item Se busca satisfacer la necesidad de aumentar la seguridad del personal y las instalaciones. 
 	\item El aspecto de mayor innovación es brindar a plantas que buscan ser mas autónomas (menor cantidad de personal) una solución de seguridad que en este momento no se esta dando. 
 \end{itemize}
 
+
 Las instalaciones dedicadas al proceso de transporte de gas cuentan con equipos dentro de edificios y fuera de edificios, en ambos casos las operación de los mismos compromete al personal con zonas calientes, equipos sometidos a alta presión y piezas móviles. En las tareas operativas como bloquear una válvula o habilitar un arrancador a gas es necesario entrar en contacto o estar en cercanía de estos elementos. Resulta de gran utilidad poder identificar que un personal de planta se encuentra realizando una tarea por ejemplo en el compresor axial de una turbina de gas, o bien operando una válvula de bypass con diferenciales de 20 kg/cm2 de presión. En algunos casos se trabaja con cargas suspendidas o bien con estibajes de cargas pesadas, aquí también es importante identificar las zonas en las cuales puede o no encontrarse el personal de operaciones. También si es que la persona ha sufrido un accidente y se encuentra en posición horizontal. Igualmente importante es si se cuenta con los elementos de protección personal. Un sistema que identifique el personal en áreas peligrosas puede prevenir perjuicios a las instalaciones por malas operaciones pero sobre todo prevenir lesiones o pérdida de vidas al notificar al personal calificado de una situación específica.
-En la Figura 1 se muestra el diagrama en bloques del sistema. Se observan algunas de las áreas planteadas y los equipos de adquisición (cámaras y placas). Luego el procesamiento en una PC dedicada (en un futuro que sea una placa de procesamiento basada en FPGA). La información junto con las imágenes es guardada en un storage. Luego la identificación de la persona y el área es enviada al PLC para ser notificada en el SCADA de planta. El operador de planta será notificado de esta situación
+En la Figura 2 se muestra el diagrama en bloques del sistema. Se observan algunas de las áreas planteadas y los equipos de adquisición (cámaras y placas). Luego el procesamiento en una PC dedicada (en un futuro que sea una placa de procesamiento basada en FPGA). La información junto con las imágenes es guardada en un storage. Luego la identificación de la persona y el área es enviada al PLC para ser notificada en el SCADA de planta. El operador de planta será notificado de esta situación
 
 %\vspace{25px}
+\begin{figure}[htpb]
+\centering
+\includegraphics[scale=0.65]{./Figuras/modeloDeNegocioCanvas.pdf}
+\caption{modelo de negocio canvas}	
+\label{fig:canvas}
+\end{figure}
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.5\textwidth]{./Figuras/diagramaProyecto.png}
+%\includegraphics[width=.5\textwidth]{./Figuras/diagramaProyecto.png}
+\includegraphics[scale=0.85]{./Figuras/diagramaProyecto.png}
 \caption{Diagrama en bloques del sistema}
 \label{fig:diagBloques}
 \end{figure}
 
 \vspace{25px}
 
-El tamaño de la tipografía en TODAS las figuras debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama, preferentemente en la gama de colores pastel.
+%El tamaño de la tipografía en TODAS las figuras debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama, preferentemente en la gama de colores pastel.
 \end{consigna}
 
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} 
-Nota: (borrar esto y todas las consignas en color rojo antes de entregar este documento).
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos.
- 
-Si se considera que una persona cumple dos o más roles, entonces sólo dejarla en el rol más importante. Por ejemplo:
-
-\begin{itemize}
-\item Si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente.
-\item Si una persona es el Responsable, no debe ser colocado también como Miembro del equipo.
-\end{itemize}
-
-Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por ejemplo.
+\begin{consigna}{black} 
+%Nota: (borrar esto y todas las consignas en color rojo antes de entregar este documento).
+% 
+%Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos.
+% 
+%Si se considera que una persona cumple dos o más roles, entonces sólo dejarla en el rol más importante. Por ejemplo:
+%
+%\begin{itemize}
+%\item Si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente.
+%\item Si una persona es el Responsable, no debe ser colocado también como Miembro del equipo.
+%\end{itemize}
+%
+%Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por ejemplo.
 
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
@@ -171,59 +178,64 @@ Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por e
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+Auspiciante   & Alejandro Cortina & TGS SA        	& Coordinador\\ \hline
+Cliente       & \clientename      &\empclientename	& Gerente  	\\ \hline
+Impulsor      & Ing Mauricio Arzer& TGS SA         	& Jefe Planta\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+Colaboradores & Ing Jesus Riffo   & TGS SA         	& Instrumentista\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Equipo        & Tec Gustavo Rua \newline 
+				Tec Luciano Matze & TGS SA      	& Mecánicos	\\ \hline
+Opositores    &    -              &  -            	&    -    	\\ \hline
+Usuario final & Tec Mauricio Velloso& TGS SA       	& Operador 	\\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los Orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
- 
-Por ejemplo:
+%El Director suele ser uno de los Orientadores.
+%
+%No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
+%
+%No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
+%
+%Es deseable listar a continuación las principales características de cada interesado.
+% 
+%Por ejemplo:
 \begin{itemize}
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
-	\item Orientador: María Gómez va a poder ayudar mucho con la definición de los requerimientos.
+	\item Auspiciante: mucha experiencia en plantas compresoras, conoce de primera mano las zonas mas comprometidas desde el punto de vista de seguridad.
+	\item Cliente: hace foco en que el proyecto busca que sea replicable a otras plantas.
+	\item Impulsor: conocimiento profundo de las instalaciones donde realizar el despliegue del proyecto. 
+	\item Colaboradores: experiencia en programación con python, podemos delegar tareas de test del programa.
+	\item Orientador: \textcolor{red}{descripción a completar con la información del director}
+	\item Equipo: las mecánicos Gustavo Rua y Luciano Matze conocen las condiciones que debe cumplir la cámara y la placa de adquisición para ser instalada en planta en ambientes explosivos.
+	\item Usuario final: el operador Mauricio Velloso es metódico en la operación de las instalaciones es posible acordar procedimiento para probar el desarrollo.
 \end{itemize}
 
 \end{consigna}
 
+ \newpage
 
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-El propósito de este proyecto se realiza para aumentar la seguridad de las personas y las instalaciones.
+\begin{consigna}{black}
+El propósito con que se realiza este proyecto es aumentar la seguridad de las personas y de las instalaciones.
 \end{consigna}
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
+\begin{consigna}{black}
  
-Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
+%Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
 Este proyecto incluye la instalación de un hardware para la adquisición, su programación y la instalación de un hardware para el procesamiento de imágenes.
-Explicitar todo lo quede comprendido dentro del alcance del proyecto.
+%Explicitar todo lo quede comprendido dentro del alcance del proyecto.
 El objetivo es desarrollar un software que se despliegue en la PC de procesamiento. Este software debe poder identificar personas e identificar áreas inseguras previamente definidas en las imágenes.
 Se propone utilizar un software de procesamiento de imágenes basado en algoritmos de inteligencia artificial para clasificar objetos y personas.
 Se propone generar un conjunto de imágenes de entrenamiento y otro de validación. Para esto se adquirirán las imágenes con una cámara color para Raspberry Pi Zero de 5Mp y una placa Raspberry Pi Zero (esto último no es importante para el procesamiento de imagen solo es anecdótico). 
-El algoritmo debe poder identificar independientemente de la instalación de la cámara alguno de los objetos en la imagen previamente definidos por ejemplo turbina. Luego identificar personas. Finalmente identificar si esta persona posee elementos de seguridad (en el caso de que sea distinguible).
-Una vez identificado los objetos debe poder identificar si hay una persona en la imagen. Si identifica positivamente la persona en la imagen, si esta persona está en el área de peligro en el caso de que lo esté debe enviar la información al PLC para notificar en el SCADA de control.
-El objetivo de identificar primero los objetos es que si estos han sufrido alguna alteración como fuego o rotura esto pueda ser indicado y notificado de nuevo al PLC y SCADA. Esto previene que las personas ingresen al área insegura.
+El algoritmo debe poder ``identificar'' independientemente de la instalación de la cámara alguno de los objetos en la imagen previamente definidos por ejemplo turbina. Luego identificar personas. Finalmente identificar si esta persona posee elementos de seguridad (en el caso de que sea distinguible).
+Una vez identificado los objetos debe poder detectar si hay una persona en la imagen. Si identifica positivamente la persona en la imagen, y si esta persona está en el área de peligro debe enviar la información al PLC para alertar en el SCADA de control.
+El objetivo de identificar primero los objetos es que si estos han sufrido alguna alteración como fuego o rotura esto pueda ser alertado y notificado de nuevo al PLC y SCADA. Esto previene que las personas ingresen al área insegura.
 Finalmente al identificar la persona debe indicarse si esta se encuentra en posición horizontal en este caso es posible que esta haya sufrido una lesión mayor y debe notificarse rápidamente al PLC y SCADA.
 El presente desarrollo será realizado dentro de las instalaciones de planta compresora de Bajo del Gualicho localizada a 80 km de la ciudad de Puerto Madryn en la provincia de Chubut. La misma cuenta con 3 turbinas de gas Nova Pignone y 1 turbina de gas Solar con sus respectivas instalaciones para operación y transporte de gas. 
 
@@ -234,15 +246,17 @@ No esta dentro de este proyecto las medidas de seguridad para operar en ambiente
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red}
-``Para el desarrollo del presente proyecto se supone que: ...''
-
+\begin{consigna}{black}
+%``Para el desarrollo del presente proyecto se supone que: ...''
+Vamos a realizar algunos supuestos para llevar acabo el proyecto.
 \begin{itemize}
-	\item Supuesto 1
-	\item Supuesto 2...
+	\item En el ambiente explosivo de instalación de la cámara la misma se va a desempeñar correctamente.
+	\item Las condiciones de iluminación son siempre las correctas. 
+	\item Se dispondrá de tiempo para instalar el equipo en planta, es decir no se va a ver condicionada el despliegue por que las maquinas estén operativas.
+	
 \end{itemize}
 
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
+%Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
 \end{consigna}
 
 \section{6. Requerimientos}
